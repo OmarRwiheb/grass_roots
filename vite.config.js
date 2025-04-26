@@ -5,5 +5,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/grass_roots/',
   plugins: [react(), tailwindcss(),],
 })
