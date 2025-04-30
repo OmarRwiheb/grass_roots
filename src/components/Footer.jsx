@@ -42,9 +42,9 @@ const Footer = () => {
                 </div>
               </div>
               <div className='flex w-full justify-center items-center mt-10'>
-                <img src="new-logo_web.png" className='bg-white rounded-full w-36 p-1' alt="" />
-                <img src="new-logo_web1.png" className=' rounded-full w-36 p-2' alt="" />
-                <img src="new-logo_web3.png" className=' rounded-full w-36 p-2' alt="" />
+                <img src="new-logo_web.png" className='bg-white rounded-full w-28 md:w-36 p-1' alt="" />
+                <img src="new-logo_web1.png" className=' rounded-full w-28 md:w-36 p-2' alt="" />
+                <img src="new-logo_web3.png" className=' rounded-full w-28 md:w-36 p-2' alt="" />
               </div>
             </div>
 
