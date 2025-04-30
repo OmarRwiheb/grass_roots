@@ -3,14 +3,17 @@ import React from 'react';
 const StoreUnit = ({ src, logo }) => {
   return (
     <div
-      className="relative w-full md:w-[300px] h-[600px] hover:cursor-pointer hover:scale-105 rounded-2xl overflow-hidden flex justify-center"
+      className="group relative w-[300px] h-[400px] md:gap-none md:w-[250px] md:h-[400px] 3xl:w-[300px] 3xl:h-[600px] hover:cursor-pointer hover:scale-105 rounded-2xl overflow-hidden flex justify-center filter: grayscale-100 hover:grayscale-0 transition-all duration-300 ease-in-out"
       data-aos="fade-up"
       style={{ transition: 'all 0.3s ease-in-out' }}
     >
-      <img src={src} alt="" className="object-cover h-full w-full opacity-20 filter: grayscale-100" />
+      <div className='absolute w-full h-full bg-black opacity-50'></div>
+      <img src={src} alt="" className="object-cover h-full w-full transition-all duration-300 ease-in-out" />
       <img src={logo} alt="" className='absolute top-1/2 z-10 -translate-y-1/2 m-auto' />
     </div>
   );
 };
 
 export default StoreUnit;
+
+

@@ -15,27 +15,36 @@ const Footer = () => {
         <div className="w-full h-fit bg-[#D89100] pt-22">
           {/* Centered content container */}
           <div className="max-w-7xl mx-auto px-4 flex flex-wrap lg:justify-around gap-10 mb-12">
-            {/* Our Shops */}
             <div>
-              <H3>OUR SHOPS</H3>
-              <div className="flex flex-col items-start gap-2">
-                <div><p className="text-center">Khan El Khalili</p></div>
-                <div><p className="text-center">Spice and More</p></div>
-                <div><p className="text-center">Morse inc.</p></div>
-                <div><p className="text-center">Fish & Chips</p></div>
-              </div>
-            </div>
+              <div className='max-w-7xl mx-auto px-4 flex flex-wrap lg:justify-around gap-10 mb-12'>
+                {/* Our Shops */}
+                <div>
+                  <H3>OUR SHOPS</H3>
+                  <div className="flex flex-col items-start gap-2">
+                    <div><p className="text-center">Khan El Khalili</p></div>
+                    <div><p className="text-center">Spice and More</p></div>
+                    <div><p className="text-center">Morse inc.</p></div>
+                    <div><p className="text-center">Fish & Chips</p></div>
+                  </div>
+                </div>
 
-            {/* Contact Info */}
-            <div>
-              <H3>CONTACT US</H3>
-              <div className="flex flex-col items-start gap-2">
-                <a href="mailto:grass.roots.cairo@gmail.com">
-                  grass.roots.cairo@gmail.com
-                </a>
-                <a href="tel:+201099749005">
-                  +20 109 974 9005
-                </a>
+                {/* Contact Info */}
+                <div>
+                  <H3>CONTACT US</H3>
+                  <div className="flex flex-col items-start gap-2">
+                    <a href="mailto:grass.roots.cairo@gmail.com">
+                      grass.roots.cairo@gmail.com
+                    </a>
+                    <a href="tel:+201099749005">
+                      +20 109 974 9005
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className='flex w-full justify-center items-center mt-10'>
+                <img src="new-logo_web.png" className='bg-white rounded-full w-36 p-1' alt="" />
+                <img src="new-logo_web1.png" className=' rounded-full w-36 p-2' alt="" />
+                <img src="new-logo_web3.png" className=' rounded-full w-36 p-2' alt="" />
               </div>
             </div>
 

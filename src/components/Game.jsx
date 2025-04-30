@@ -76,28 +76,34 @@ const Game = () => {
   };
 
   return (
-    <Section classes="mb-40 max-w-[90%] ">
-      <div className="relative w-full flex flex-col items-center justify-center text-center">
-        <H2>See Your Name <span className='text-[#ffc000]'>in Hieroglyphic</span></H2>
-        <label htmlFor="singleField" className="heiro-label mb-10">
-          Insert your name:
-        </label>
-        <input
-          type="text"
-          id="singleField"
-          name="singleField"
-          value={inputValue}
-          onChange={handleInputChange}
-          className='p-[20px] rounded-[25px] mx-[10px] w-[90%] lg:w-1/2 border-2 border-[#ffc000]'
-        />
-        <div id="hieroglyphs-display" className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-4 mt-4">
-          {hieroglyphs.map((image, index) => (
-            <img key={index} src={image} alt={`Hieroglyph ${index}`} className='w-32 lg:w-44' />
-          ))}
+    <>
+      {/* <img src="egyptianMuesum3.png" className='absolute right-0  opacity-25 filter: grayscale-100  -z-10 ' alt="" /> */}
+      <Section classes="max-w-[90%] lg:w-3/4">
+        <div className="relative w-full flex flex-col items-center justify-center text-center">
+          <H2>See Your Name <span className='text-[#ffc000]'>in Hieroglyphic</span></H2>
+          <label htmlFor="singleField" className="heiro-label mb-10">
+            Insert your name:
+          </label>
+          <input
+            type="text"
+            id="singleField"
+            name="singleField"
+            value={inputValue}
+            onChange={handleInputChange}
+            className='p-[20px] rounded-[25px] mx-[10px] w-[90%] lg:w-1/2 border-2 border-[#ffc000]'
+          />
+          <div id="hieroglyphs-display" className="flex flex-row flex-wrap justify-center gap-4 mt-4">
+            {hieroglyphs.map((image, index) => (
+              <img key={index} src={image} alt={`Hieroglyph ${index}`} className='w-16 lg:w-32' />
+            ))}
+            {/* <img src="logo_horizontal.png" className='w-2/3' alt="" /> */}
+
+          </div>
+          <div className='flex w-full justify-center items-center mt-10'><img src="logo_horizontal.png" className='w-72 translate-y-2' alt="" /></div>
+          {/* <p id="name-display" className='text-4xl mt-10 text-[#ffc000] font-bold'>{inputValue}</p> */}
         </div>
-        <p id="name-display" className='text-4xl mt-10 text-[#ffc000] font-bold'>{inputValue}</p>
-      </div>
-    </Section>
+      </Section>
+    </>
   );
 };
 

@@ -14,11 +14,12 @@ const Home = () => {
     AOS.init({
       duration: 1500, // animation duration in ms
       delay: 200, // delay before animation starts in ms
+      once: true, // whether animation should happen only once or every time you scroll up/down to element
     });
   }, []);
 
   return (
-    <main className='m-auto bg-[#1f1e1d] text-white h-screen '>
+    <main className='m-auto bg-[#1f1e1d] text-white h-screen overflow-x-clip'>
       <Hero />
       <AboutSection />
       <Stores />

@@ -15,13 +15,22 @@ const Hero = () => {
 
   return (
     <>
-      <Section classes='mb-40 h-dvh'>
-        <h1 className='text-[50px] lg:text-9xl text-center font-bold mb-4 text-transparent stroke-text z-10 absolute'>
-          GRASS ROOTS
-        </h1>
-        <h1 className='text-[50px] lg:text-9xl text-center font-bold mb-4 z-0'>
-          GRASS ROOTS
-        </h1>
+      <Section classes='mb-40 h-full'>
+        <div className='absolute w-full h-full'>
+          <img src="egyptianMuesum1.png" alt="" className='opacity-25 filter: grayscale-100 absolute left-0 -z-10 h-full w-full object-cover lg:w-auto lg:h-auto' />
+        </div>
+        <div className='flex flex-col items-center justify-center h-full relative'>
+          <div>
+            <h1 className='text-[50px] lg:text-9xl text-center font-bold mb-4 text-transparent stroke-text z-10 absolute'>
+              GRASS ROOTS
+            </h1>
+            <h1 className='text-[50px] lg:text-9xl text-center font-bold mb-4 z-0'>
+              GRASS ROOTS
+            </h1>
+          </div>
+          <div className='h-0.5 w-[90%] lg:w-full bg-[#ffc000]'></div>
+          <p className='z-10 w-[80%] mt-6 lg:mt-3 text-center text-2xl lg:text-4xl font-[Phenomena]'>From the depths of <span className='text-[#ffc000]'>history</span>, we craft the <span className='text-[#ffc000]'>future</span>.</p>
+        </div>
         <img
           src="hero.webp"
           alt="pharaoh hero main photo"
@@ -37,7 +46,7 @@ const Hero = () => {
           <motion.img src="hero_images/4.webp" alt="" className='absolute top-0 right-1/4 w-44 -z-10 blur-[5px] hidden lg:block' style={{ y: y6 }} />
           <motion.img src="hero_images/5.webp" alt="" className='absolute w-20 bottom-0 left-0 lg:right-0 lg:left-auto lg:w-80 lg:-z-10 lg:blur-[5px]  lg:block ' style={{ y: y4 }} />
         </div>
-      </Section>
+      </Section >
     </>
   )
 }
