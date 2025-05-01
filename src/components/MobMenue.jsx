@@ -8,7 +8,8 @@ import { NavItems } from "../data/Nav";
 const MobMenue = ({ toggleMenu }) => {
   return (
     <div className="fixed flex justify-between items-center z-50 text-white w-[90%] lg:w-3/4 m-auto lg:hidden">
-      <img src="logo.webp" alt="" className='w-[100px]' />
+      <Link to='/'><img src="logo.webp" alt="" className='w-[100px]' onClick={toggleMenu} />
+      </Link>
       <button className='lg:hidden' onClick={toggleMenu}>
         <HiMenuAlt3 size={35} />
       </button>
