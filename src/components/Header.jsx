@@ -1,11 +1,65 @@
-import { HiMenuAlt3 } from "react-icons/hi";
+
 import { NavItems } from "../data/Nav";
+import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from 'react'
+
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
+import MobMenue from './MobMenue';
 
 const Header = () => {
+  const container = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const tl = useRef();
+
+
+  const toggleMenu = () => {
+    setIsMenuOpen(prev => !prev);
+  }
+
+  useGSAP(() => {
+    gsap.set(".menu-link-item-holder", { y: 75 });
+
+    tl.current = gsap
+      .timeline({ paused: true })
+      .to(".menu-overlay", { duration: 1, clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", ease: "power4.inOut" })
+      .to(".menu-link-item-holder", { y: 0, duration: 1, stagger: 0.1, ease: "power4.inOut", delay: -0.75 })
+  }, { scope: container });
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      tl.current.play();
+    } else {
+      tl.current.reverse();
+    }
+  }, [isMenuOpen]);
+
+
+
   return (
-    <header className=' absolute top-0 left-0 w-full z-50'>
-      <nav className='flex justify-between items-center text-white w-[90%] lg:w-3/4 m-auto'>
-        <img src="logo.webp" alt="" className='w-[100px]' />
+    <header className='relative flex justify-center'>
+      <nav className='flex justify-center' ref={container}>
+        <div className="menu-bar fixed z-50  justify-between items-center text-white w-[90%] lg:w-3/4 m-auto  hidden lg:flex">
+          <div className="menu-logo">
+            <Link to='/'><img src="logo.webp" alt="" className='w-[100px]' />
+            </Link>
+          </div>
+          <ul className='space-x-4 gap-9 text-xl hidden lg:flex'>
+            {NavItems.map((item, index) => (
+              <li key={item.title} className="uppercase font-light" ><Link to={item.url}>{item.title}</Link></li>
+            ))}
+          </ul>
+        </div>
+        <MobMenue toggleMenu={toggleMenu} />
+      </nav>
+    </header>
+  )
+}
+
+export default Header
+
+{/* <img src="logo.webp" alt="" className='w-[100px]' />
         <ul className='space-x-4 gap-9 text-xl hidden lg:flex'>
           {NavItems.map((item, index) => (
             <li key={item.title} className="uppercase font-light" ><a href={item.url}>{item.title}</a></li>
@@ -13,10 +67,4 @@ const Header = () => {
         </ul>
         <button className='lg:hidden'>
           <HiMenuAlt3 size={35} />
-        </button>
-      </nav>
-    </header>
-  )
-}
-
-export default Header
+        </button> */}

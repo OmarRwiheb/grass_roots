@@ -9,6 +9,6 @@ export const NavItems = [
   },
   {
     title: "Our shops",
-    url: "/shops",
+    url: "/stores",
   },
 ];

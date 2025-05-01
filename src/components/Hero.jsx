@@ -15,7 +15,7 @@ const Hero = () => {
 
   return (
     <>
-      <Section classes='mb-40 h-full'>
+      <Section classes='mb-40 h-screen'>
         <div className='absolute w-full h-full'>
           <img src="egyptianMuesum1.webp" alt="" className='opacity-25 filter: grayscale-100 absolute left-0 -z-10 h-full w-full object-cover lg:w-auto lg:h-auto' />
         </div>
