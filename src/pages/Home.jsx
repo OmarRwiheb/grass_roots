@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className='m-auto bg-[#1f1e1d] text-white overflow-x-clip '>
+    <main className='m-auto  text-white overflow-x-clip '>
       <Hero />
       <AboutSection />
       <Stores />
