@@ -58,13 +58,3 @@ const Header = () => {
 }
 
 export default Header
-
-{/* <img src="logo.webp" alt="" className='w-[100px]' />
-        <ul className='space-x-4 gap-9 text-xl hidden lg:flex'>
-          {NavItems.map((item, index) => (
-            <li key={item.title} className="uppercase font-light" ><a href={item.url}>{item.title}</a></li>
-          ))}
-        </ul>
-        <button className='lg:hidden'>
-          <HiMenuAlt3 size={35} />
-        </button> */}

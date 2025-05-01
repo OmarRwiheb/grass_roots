@@ -5,8 +5,8 @@
 }
 
 @font-face {
-  font-family: "Phonomena";
-  src: url("/phenomena/Phenomena-Regular.otf") format("truetype");
+  font-family: "Phenomena";
+  src: url("/fonts/Phenomena-Regular.otf");
   font-weight: normal;
   font-style: normal;
 }
