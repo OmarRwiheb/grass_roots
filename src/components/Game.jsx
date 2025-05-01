@@ -77,7 +77,7 @@ const Game = () => {
 
   return (
     <>
-      {/* <img src="egyptianMuesum3.png" className='absolute right-0  opacity-25 filter: grayscale-100  -z-10 ' alt="" /> */}
+      {/* <img src="egyptianMuesum3.webp" className='absolute right-0  opacity-25 filter: grayscale-100  -z-10 ' alt="" /> */}
       <Section classes="max-w-[90%] lg:w-3/4">
         <div className="relative w-full flex flex-col items-center justify-center text-center">
           <H2>See Your Name <span className='text-[#ffc000]'>in Hieroglyphic</span></H2>
@@ -96,10 +96,10 @@ const Game = () => {
             {hieroglyphs.map((image, index) => (
               <img key={index} src={image} alt={`Hieroglyph ${index}`} className='w-16 lg:w-32' />
             ))}
-            {/* <img src="logo_horizontal.png" className='w-2/3' alt="" /> */}
+            {/* <img src="logo_horizontal.webp" className='w-2/3' alt="" /> */}
 
           </div>
-          <div className='flex w-full justify-center items-center mt-10'><img src="logo_horizontal.png" className='w-72 translate-y-2' alt="" /></div>
+          <div className='flex w-full justify-center items-center mt-10'><img src="logo_horizontal.webp" className='w-72 translate-y-2' alt="" /></div>
           {/* <p id="name-display" className='text-4xl mt-10 text-[#ffc000] font-bold'>{inputValue}</p> */}
         </div>
       </Section>

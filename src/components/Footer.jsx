@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="text-white relative z-10 w-full">
       {/* Background image full width */}
-      <img src="footer1.png" alt="" className="w-full" />
+      <img src="footer1.webp" alt="" className="w-full" />
 
       <div>
         {/* Decorative gradient overlay */}
@@ -42,9 +42,9 @@ const Footer = () => {
                 </div>
               </div>
               <div className='flex w-full justify-center items-center mt-10'>
-                <img src="new-logo_web.png" className='bg-white rounded-full w-28 md:w-36 p-1' alt="" />
-                <img src="new-logo_web1.png" className=' rounded-full w-28 md:w-36 p-2' alt="" />
-                <img src="new-logo_web3.png" className=' rounded-full w-28 md:w-36 p-2' alt="" />
+                <img src="new-logo_web.webp" className='bg-white rounded-full w-28 md:w-36 p-1' alt="" />
+                <img src="new-logo_web1.webp" className=' rounded-full w-28 md:w-36 p-2' alt="" />
+                <img src="new-logo_web3.webp" className=' rounded-full w-28 md:w-36 p-2' alt="" />
               </div>
             </div>
 

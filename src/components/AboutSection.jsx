@@ -8,7 +8,7 @@ const AboutSection = () => {
 
   return (
     <>
-      <img src="pharaoh.png" className='absolute right-0 filter: grayscale-100 opacity-25 -z-10 h-full w-full object-cover lg:w-auto lg:h-auto ' alt="" />
+      <img src="pharaoh.webp" className='absolute right-0 filter: grayscale-100 opacity-25 -z-10 h-full w-full object-cover lg:w-auto lg:h-auto ' alt="" />
 
       <Section classes='h-fit mb-44 max-w-[90%] overflow-hidden lg:w-3/4'>
 

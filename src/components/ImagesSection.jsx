@@ -36,12 +36,12 @@ const ImagesSection = () => {
 
   return (
     <>
-      {/* <img src="pharaoh.png" className='absolute left-0  opacity-25  -z-10 ' alt="" /> */}
-      <img src="egyptianMuesum3.png" className='absolute left-0  opacity-25 filter: grayscale-100  -z-10 h-full w-full object-cover lg:w-auto lg:h-auto' alt="" />
+      {/* <img src="pharaoh.webp" className='absolute left-0  opacity-25  -z-10 ' alt="" /> */}
+      <img src="egyptianMuesum3.webp" className='absolute left-0  opacity-25 filter: grayscale-100  -z-10 h-full w-full object-cover lg:w-auto lg:h-auto' alt="" />
 
       <Section classes={'mb-40 lg:my-40 lg:py-40 '}>
         <div className='lg:absolute w-screen h-full overflow-x-clip'>
-          <img src="lotus8.png" alt="" className='lg:absolute right-0 top-1/2 lg:w-1/3 lg:-translate-y-1/2 -rotate-180 lg:-rotate-90' />
+          <img src="lotus8.webp" alt="" className='lg:absolute right-0 top-1/2 lg:w-1/3 lg:-translate-y-1/2 -rotate-180 lg:-rotate-90' />
         </div>
         <div className='relative w-full'>
           <Swiper
