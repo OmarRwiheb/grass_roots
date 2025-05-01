@@ -5,10 +5,9 @@
 }
 
 @font-face {
-  font-family: "Phenomena";
-  src: url("phenomena/Phonomena-Regular.otf") format("otf");
+  font-family: "Phonomena";
+  src: url("phenomena/Phonomena-Regular.otf") format("opentype");
 }
-
 body {
   background: #1f1e1d;
 }
