@@ -4,6 +4,11 @@
   --breakpoint-3xl: 120rem;
 }
 
+@font-face {
+  font-family: "Phonomena";
+  src: url("phenomena/Phonomena-Regular.otf") format("otf");
+}
+
 body {
   background: #1f1e1d;
 }
