@@ -28,7 +28,7 @@ const Hero = () => {
             </h1>
           </div>
           <div className='h-0.5 w-[90%] lg:w-full bg-[#ffc000]'></div>
-          <p className='z-10 w-[80%] mt-6 lg:mt-3 text-center text-2xl lg:text-4xl font-[Phenomena]'>From the depths of <span className='text-[#ffc000]'>history</span>, we craft the <span className='text-[#ffc000]'>future</span>.</p>
+          <p className='z-10 w-[80%] mt-6 lg:mt-3 text-center text-2xl lg:text-4xl font-[Phenomena]'>From the depths of the <span className='text-[#ffc000]'>history</span>, we craft the <span className='text-[#ffc000]'>future</span>.</p>
         </div>
         <img
           src="hero.webp"
