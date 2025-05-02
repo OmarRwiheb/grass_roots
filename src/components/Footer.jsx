@@ -21,10 +21,10 @@ const Footer = () => {
                 <div>
                   <H3>OUR SHOPS</H3>
                   <div className="flex flex-col items-start gap-2">
-                    <div><p className="text-center">Khan El Khalili</p></div>
-                    <div><p className="text-center">Spice and More</p></div>
-                    <div><p className="text-center">Morse inc.</p></div>
-                    <div><p className="text-center">Fish & Chips</p></div>
+                    <a>Khan El Khalili</a>
+                    <a href="https://www.instagram.com/spice.and.more.egy/" target='_blank'>Spice and More</a>
+                    <a href="https://morseink.net/en/" target='_blank'>Morse inc.</a>
+                    <a href="https://g.co/kgs/7r2YEEG" target='_blank'>Fish & Chips</a>
                   </div>
                 </div>
 
@@ -63,6 +63,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="pb-10">
+            <p className="text-center">Tax Registration 760-919-518</p>
             <p className="text-center">&copy; 2025 Grass Roots. All rights reserved.</p>
           </div>
         </div>
