@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import ProductDetailClient from "@/components/shop/ProductDetailClient";
-import { getProductByHandle } from "@/services/shopify/shopifyProducts";
+import { getProductByHandle, getProducts } from "@/services/shopify/shopifyProducts";
 
 export async function generateMetadata({ params }) {
   const { handle } = await params;
@@ -29,9 +29,17 @@ export default async function ProductPage({ params }) {
     notFound();
   }
 
+  let relatedProducts = [];
+  try {
+    const { products } = await getProducts(9);
+    relatedProducts = products.filter((p) => p.handle !== handle).slice(0, 4);
+  } catch (err) {
+    console.error("Failed to load related products:", err);
+  }
+
   return (
     <main className="m-auto text-white overflow-x-clip">
-      <ProductDetailClient product={product} />
+      <ProductDetailClient product={product} relatedProducts={relatedProducts} />
     </main>
   );
 }

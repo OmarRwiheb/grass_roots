@@ -115,13 +115,20 @@ export const transformProduct = (p) => {
 
   const maxDiscount = normalized.reduce((m, n) => (n.discountPct > m ? n.discountPct : m), 0);
 
+  const availableQuantities = variants
+    .filter((v) => v.availableForSale)
+    .map((v) => v.quantityAvailable);
+  const totalAvailableQuantity = availableQuantities.every((q) => typeof q === "number")
+    ? availableQuantities.reduce((sum, q) => sum + q, 0)
+    : null;
+
   const originalPrice =
     minEntry?.onSale && minEntry.compareAt ? `${currency} ${minEntry.compareAt.toFixed(2)}` : null;
 
-  const price =
-    minEntry?.price != null
-      ? `${currency} ${minEntry.price.toFixed(2)}`
-      : `${currency} ${(Number(p.priceRange?.minVariantPrice?.amount) || 0).toFixed(2)}`;
+  const priceValue =
+    minEntry?.price != null ? minEntry.price : Number(p.priceRange?.minVariantPrice?.amount) || 0;
+
+  const price = `${currency} ${priceValue.toFixed(2)}`;
 
   const fullVariants = variants.map((variant) => {
     const selectedOptions = variant.selectedOptions || [];
@@ -150,6 +157,7 @@ export const transformProduct = (p) => {
     imageUrl: p.featuredImage?.url || images[0]?.url || null,
     images: images.map((img) => img.url).filter(Boolean),
     price,
+    priceValue,
     originalPrice,
     isSale: maxDiscount > 0,
     discountPercentage: maxDiscount,
@@ -159,6 +167,7 @@ export const transformProduct = (p) => {
     sizes,
     variants: fullVariants,
     hasAnyAvailable: variants.some((v) => v.availableForSale),
+    totalAvailableQuantity,
   };
 };
 

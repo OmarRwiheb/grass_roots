@@ -19,23 +19,58 @@ body {
   -webkit-text-stroke: 1px white;
   color: transparent;
 }
-.swiper {
+
+/* Artifact frame: a plain gold hairline around the product photo with a
+   single carved-stud accent at the top edge, like the cap on a stela or
+   cartouche. Reused across shop cards + PDP gallery. */
+.artifact-frame {
+  position: relative;
+  border: 1px solid rgba(255, 192, 0, 0.4);
+  transition: border-color 0.3s ease;
+}
+.artifact-frame::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  background: #ffc000;
+  opacity: 0.75;
+  transform: translateX(-50%) rotate(45deg);
+  transition: opacity 0.3s ease;
+}
+.artifact-frame:hover,
+.artifact-frame:focus-within {
+  border-color: rgba(255, 192, 0, 0.85);
+}
+.artifact-frame:hover::before,
+.artifact-frame:focus-within::before {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .artifact-frame,
+  .artifact-frame::before {
+    transition: none;
+  }
+}
+.swiper.swiper_container {
   max-width: 50%;
   overflow: unset !important;
   position: absolute !important;
 }
 @media (max-width: 980px) {
-  .swiper {
+  .swiper.swiper_container {
     max-width: 75%;
   }
 }
-.swiper-slide {
+.swiper_container .swiper-slide {
   background-position: center;
   background-size: cover;
   width: 300px !important;
   height: 300px !important;
 }
-.swiper-slide::after {
+.swiper_container .swiper-slide::after {
   position: absolute;
   content: "";
   inset: 0;
@@ -43,10 +78,10 @@ body {
   border-radius: 15px;
   background: linear-gradient(to bottom right, #0101018f, #0000005e);
 }
-.swiper-slide-active::after {
+.swiper_container .swiper-slide-active::after {
   background: none;
 }
-.swiper-slide img {
+.swiper_container .swiper-slide img {
   display: block;
   width: 100%;
   object-fit: cover;
@@ -56,13 +91,13 @@ body {
 }
 
 @media (min-width: 768px) {
-  .swiper-slide h2 {
+  .swiper_container .swiper-slide h2 {
     font-size: 2rem;
   }
   .text {
     width: 80%;
   }
-  .swiper-slide-active ~ .swiper-slide {
+  .swiper_container .swiper-slide-active ~ .swiper-slide {
     opacity: 0;
     filter: blur(2px);
     transition: opacity 0.3s, filter 0.3s;
