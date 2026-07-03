@@ -11,8 +11,4 @@ export const NavItems = [
   //   title: "About us",
   //   url: "/about",
   // },
-  {
-    title: "Our shops",
-    url: "/stores",
-  },
 ];
