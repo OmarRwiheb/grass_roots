@@ -1,16 +1,26 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HiMenuAlt3 } from "react-icons/hi";
+import { HiMenuAlt3, HiShoppingBag } from "react-icons/hi";
 import { NavItems } from "../data/Nav";
 
-const MobMenue = ({ toggleMenu }) => {
+const MobMenue = ({ toggleMenu, onCartClick, cartCount = 0 }) => {
   return (
     <div className="fixed flex justify-between items-center z-50 text-white w-[90%] lg:w-3/4 m-auto lg:hidden">
       <Link href='/'><Image src="/logo.webp" alt="" width={1080} height={1080} className='w-[100px] h-auto' />
       </Link>
-      <button className='lg:hidden' onClick={toggleMenu}>
-        <HiMenuAlt3 size={35} />
-      </button>
+      <div className='flex items-center gap-5'>
+        <button className='relative' onClick={onCartClick} aria-label='Open cart'>
+          <HiShoppingBag size={28} />
+          {cartCount > 0 && (
+            <span className='absolute -top-2 -right-2 bg-[#ffc000] text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
+              {cartCount}
+            </span>
+          )}
+        </button>
+        <button className='lg:hidden' onClick={toggleMenu}>
+          <HiMenuAlt3 size={35} />
+        </button>
+      </div>
 
       <div className="menu-overlay flex flex-col items-center">
         <div className="menu-overlay-bar flex justify-between items-center text-white w-[90%] lg:w-3/4">

@@ -4,14 +4,19 @@ import { NavItems } from "../data/Nav";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from 'react'
+import { HiShoppingBag } from 'react-icons/hi'
 
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import MobMenue from './MobMenue';
+import CartDrawer from './shop/CartDrawer';
+import { useCart } from '../contexts/CartContext';
 
 const Header = () => {
   const container = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { getItemCount } = useCart();
 
   const tl = useRef();
 
@@ -52,9 +57,18 @@ const Header = () => {
               <li key={item.title} className="uppercase font-light" ><Link href={item.url}>{item.title}</Link></li>
             ))}
           </ul>
+          <button onClick={() => setIsCartOpen(true)} className='relative' aria-label='Open cart'>
+            <HiShoppingBag size={26} />
+            {getItemCount() > 0 && (
+              <span className='absolute -top-2 -right-2 bg-[#ffc000] text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center'>
+                {getItemCount()}
+              </span>
+            )}
+          </button>
         </div>
-        <MobMenue toggleMenu={toggleMenu} />
+        <MobMenue toggleMenu={toggleMenu} onCartClick={() => setIsCartOpen(true)} cartCount={getItemCount()} />
       </nav>
+      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   )
 }

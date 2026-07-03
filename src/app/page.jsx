@@ -1,32 +1,15 @@
-"use client";
+import HomeContent from "../components/HomeContent";
+import { getProducts } from "../services/shopify/shopifyProducts";
 
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Hero from "../components/Hero";
-import AboutSection from "../components/AboutSection";
-import ImagesSection from "../components/ImagesSection";
-import Stores from "../components/Stores";
-import Game from "../components/Game";
+export const dynamic = "force-dynamic";
 
-const Home = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1500, // animation duration in ms
-      delay: 200, // delay before animation starts in ms
-      once: true, // whether animation should happen only once or every time you scroll up/down to element
-    });
-  }, []);
+export default async function Home() {
+  let products = [];
+  try {
+    ({ products } = await getProducts(8));
+  } catch (err) {
+    console.error("Failed to load featured products:", err);
+  }
 
-  return (
-    <main className="m-auto  text-white overflow-x-clip ">
-      <Hero />
-      <AboutSection />
-      <Stores />
-      <ImagesSection />
-      <Game />
-    </main>
-  );
-};
-
-export default Home;
+  return <HomeContent products={products} />;
+}

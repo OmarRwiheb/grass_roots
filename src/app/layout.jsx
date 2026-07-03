@@ -2,6 +2,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SmoothScroll from "../components/SmoothScroll";
+import { CartProvider } from "../contexts/CartContext";
 
 export const metadata = {
   title: "Grass Roots",
@@ -20,10 +21,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SmoothScroll />
-        <Header />
-        {children}
-        <Footer />
+        <CartProvider>
+          <SmoothScroll />
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

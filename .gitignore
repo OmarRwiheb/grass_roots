@@ -13,6 +13,7 @@ out
 build
 .vercel
 *.local
+.env
 
 # Editor directories and files
 .vscode/*
