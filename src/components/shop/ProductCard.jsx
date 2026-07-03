@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
   const handleQuickAdd = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!firstVariant || !firstVariant.availableForSale) return;
+    if (!firstVariant || !firstVariant.availableForSale || isAdding) return;
 
     setIsAdding(true);
     const result = await addToCart(firstVariant.id, 1);
@@ -95,11 +95,13 @@ const ProductCard = ({ product }) => {
               ? "bg-white/20 text-white/50 cursor-not-allowed"
               : isInCart
               ? "bg-[#ffc000] text-black"
-              : "bg-[#ffc000] text-black hover:bg-white"
+              : "bg-[#ffc000] text-black hover:bg-white disabled:opacity-70 disabled:hover:bg-[#ffc000]"
           }`}
         >
           {!firstVariant?.availableForSale
             ? "Sold out"
+            : isAdding
+            ? "Adding..."
             : message || (isInCart ? "In cart" : "Add to cart")}
         </button>
       </div>

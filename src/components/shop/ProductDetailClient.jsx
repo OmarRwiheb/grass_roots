@@ -29,6 +29,8 @@ const ProductDetailClient = ({ product, relatedProducts = [] }) => {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [quantity, setQuantity] = useState(1);
   const [status, setStatus] = useState("");
+  const [isAdding, setIsAdding] = useState(false);
+  const [isBuyingNow, setIsBuyingNow] = useState(false);
   const [showStickyBar, setShowStickyBar] = useState(false);
 
   const addToCartRef = useRef(null);
@@ -73,10 +75,25 @@ const ProductDetailClient = ({ product, relatedProducts = [] }) => {
   }, []);
 
   const handleAddToCart = async () => {
-    if (!selectedVariant?.availableForSale) return;
+    if (!selectedVariant?.availableForSale || isAdding) return;
+    setIsAdding(true);
     setStatus("Adding...");
     const result = await addToCart(selectedVariant.id, quantity);
     setStatus(result.success ? "Added to cart" : result.error || "Error");
+    setIsAdding(false);
+    setTimeout(() => setStatus(""), 2000);
+  };
+
+  const handleBuyNow = async () => {
+    if (!selectedVariant?.availableForSale || isBuyingNow) return;
+    setIsBuyingNow(true);
+    const result = await addToCart(selectedVariant.id, quantity);
+    if (result.success && result.cart?.checkoutUrl) {
+      window.location.href = result.cart.checkoutUrl;
+      return;
+    }
+    setStatus(result.error || "Error");
+    setIsBuyingNow(false);
     setTimeout(() => setStatus(""), 2000);
   };
 
@@ -199,18 +216,30 @@ const ProductDetailClient = ({ product, relatedProducts = [] }) => {
                 </div>
               </div>
 
-              <button
-                ref={addToCartRef}
-                onClick={handleAddToCart}
-                disabled={!selectedVariant?.availableForSale}
-                className={`w-full lg:w-auto px-10 py-3 uppercase font-bold rounded-full transition-colors ${
-                  selectedVariant?.availableForSale
-                    ? "bg-[#ffc000] text-black hover:bg-white"
-                    : "bg-white/20 text-white/50 cursor-not-allowed"
-                }`}
-              >
-                {selectedVariant?.availableForSale ? status || "Add to cart" : "Sold out"}
-              </button>
+              <div className="flex flex-col lg:flex-row gap-3">
+                <button
+                  ref={addToCartRef}
+                  onClick={handleAddToCart}
+                  disabled={!selectedVariant?.availableForSale || isAdding || isBuyingNow}
+                  className={`w-full lg:w-auto px-10 py-3 uppercase font-bold rounded-full transition-colors ${
+                    selectedVariant?.availableForSale
+                      ? "bg-[#ffc000] text-black hover:bg-white disabled:opacity-70 disabled:hover:bg-[#ffc000]"
+                      : "bg-white/20 text-white/50 cursor-not-allowed"
+                  }`}
+                >
+                  {selectedVariant?.availableForSale ? status || "Add to cart" : "Sold out"}
+                </button>
+
+                {selectedVariant?.availableForSale && (
+                  <button
+                    onClick={handleBuyNow}
+                    disabled={isAdding || isBuyingNow}
+                    className="w-full lg:w-auto px-10 py-3 uppercase font-bold rounded-full border border-[#ffc000] text-[#ffc000] transition-colors hover:bg-[#ffc000] hover:text-black disabled:opacity-70 disabled:hover:bg-transparent disabled:hover:text-[#ffc000]"
+                  >
+                    {isBuyingNow ? "Redirecting..." : "Buy it now"}
+                  </button>
+                )}
+              </div>
 
               {product.description && (
                 <>
@@ -255,10 +284,10 @@ const ProductDetailClient = ({ product, relatedProducts = [] }) => {
         </div>
         <button
           onClick={handleAddToCart}
-          disabled={!selectedVariant?.availableForSale}
+          disabled={!selectedVariant?.availableForSale || isAdding || isBuyingNow}
           className={`shrink-0 px-6 py-2.5 uppercase text-sm font-bold rounded-full transition-colors ${
             selectedVariant?.availableForSale
-              ? "bg-[#ffc000] text-black hover:bg-white"
+              ? "bg-[#ffc000] text-black hover:bg-white disabled:opacity-70 disabled:hover:bg-[#ffc000]"
               : "bg-white/20 text-white/50 cursor-not-allowed"
           }`}
         >
