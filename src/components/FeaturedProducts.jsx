@@ -8,8 +8,8 @@ const FeaturedProducts = ({ products }) => {
 
   return (
     <Section classes="mb-40 max-w-[90%] lg:w-3/4">
-      <div className="w-full flex flex-col items-center text-center">
-        <H2>
+      <div className="w-full flex flex-col items-center">
+        <H2 className="text-center">
           SHOP THE <span className="text-[#ffc000]">COLLECTION</span>
         </H2>
         <ProductGrid products={products} />
