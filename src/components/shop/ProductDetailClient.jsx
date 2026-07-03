@@ -103,7 +103,7 @@ const ProductDetailClient = ({ product, relatedProducts = [] }) => {
               />
             </div>
 
-            <div className="w-full lg:w-1/3 text-white">
+            <div className="w-full lg:flex-1 text-white">
               <h1 className="uppercase font-bold text-3xl lg:text-4xl mb-3">{product.name}</h1>
 
               <div className="flex items-center gap-3 mb-1">

@@ -35,7 +35,7 @@ const ProductGallery = ({ images, alt, isSale, discountPercentage, hasAnyAvailab
                       src={img}
                       alt={`${alt} ${i + 1}`}
                       fill
-                      className={`object-cover ${dimmed}`}
+                      className={`object-contain ${dimmed}`}
                       priority={i === 0}
                     />
                   </div>
@@ -44,7 +44,7 @@ const ProductGallery = ({ images, alt, isSale, discountPercentage, hasAnyAvailab
             </Swiper>
           ) : (
             images[0] && (
-              <Image src={images[0]} alt={alt} fill className={`object-cover ${dimmed}`} priority />
+              <Image src={images[0]} alt={alt} fill className={`object-contain ${dimmed}`} priority />
             )
           )}
 
