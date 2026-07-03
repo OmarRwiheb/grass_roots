@@ -23,7 +23,6 @@ const Footer = () => {
                   <div className="flex flex-col items-start gap-2">
                     <a>Khan El Khalili</a>
                     <a href="https://www.instagram.com/spice.and.more.egy/" target='_blank'>Spice and More</a>
-                    <a href="https://morseink.net/en/" target='_blank'>Morse inc.</a>
                     <a href="https://g.co/kgs/7r2YEEG" target='_blank'>Fish & Chips</a>
                   </div>
                 </div>
