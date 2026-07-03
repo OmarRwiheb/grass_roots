@@ -1,6 +1,21 @@
 import { apiClient } from "@/services/apiClient";
 import { transformProduct } from "./shopifyProducts";
 
+const COLLECTIONS_QUERY = `
+  query Collections($first: Int!) @inContext(country: EG, language: EN) {
+    collections(first: $first) {
+      edges {
+        node {
+          id
+          title
+          handle
+          image { url altText }
+        }
+      }
+    }
+  }
+`;
+
 const COLLECTION_BY_HANDLE_QUERY = `
   query CollectionByHandle($handle: String!, $first: Int!, $after: String)
   @inContext(country: EG, language: EN) {
@@ -43,6 +58,20 @@ const COLLECTION_BY_HANDLE_QUERY = `
     }
   }
 `;
+
+export async function getCollections(first = 20) {
+  const data = await apiClient.graphql(COLLECTIONS_QUERY, { first });
+  const edges = data?.collections?.edges ?? [];
+
+  return edges
+    .map((e) => ({
+      id: e.node.id,
+      title: e.node.title,
+      handle: e.node.handle,
+      imageUrl: e.node.image?.url || null,
+    }))
+    .filter((c) => c.imageUrl);
+}
 
 export async function getCollectionProductsByHandle({ handle, first = 24, after = null }) {
   const data = await apiClient.graphql(COLLECTION_BY_HANDLE_QUERY, { handle, first, after });

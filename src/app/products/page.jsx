@@ -2,6 +2,7 @@ import Image from "next/image";
 import Section from "@/components/Section";
 import ShopCollection from "@/components/shop/ShopCollection";
 import { getProducts } from "@/services/shopify/shopifyProducts";
+import { getCollections } from "@/services/shopify/shopifyCollection";
 
 export const metadata = {
   title: "Shop | Grass Roots",
@@ -11,10 +12,16 @@ export const dynamic = "force-dynamic";
 
 export default async function ProductsPage() {
   let products = [];
+  let collections = [];
   try {
     ({ products } = await getProducts(50));
   } catch (err) {
     console.error("Failed to load products:", err);
+  }
+  try {
+    collections = await getCollections();
+  } catch (err) {
+    console.error("Failed to load collections:", err);
   }
 
   return (
@@ -50,7 +57,7 @@ export default async function ProductsPage() {
       </div>
 
       <Section classes="mb-40 max-w-[90%] lg:w-3/4">
-        <ShopCollection products={products} />
+        <ShopCollection products={products} collections={collections} />
       </Section>
     </main>
   );

@@ -11,6 +11,7 @@ const PRODUCT_FIELDS = `
   description
   featuredImage { url altText }
   images(first: 10) { nodes { url altText } }
+  collections(first: 10) { edges { node { handle } } }
   priceRange {
     minVariantPrice { amount currencyCode }
     maxVariantPrice { amount currencyCode }
@@ -168,6 +169,7 @@ export const transformProduct = (p) => {
     variants: fullVariants,
     hasAnyAvailable: variants.some((v) => v.availableForSale),
     totalAvailableQuantity,
+    collectionHandles: (p.collections?.edges || []).map((e) => e.node.handle),
   };
 };
 
