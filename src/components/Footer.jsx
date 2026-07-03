@@ -1,11 +1,11 @@
-import React from 'react';
+import Image from 'next/image';
 import H3 from '../UI/H3';
 
 const Footer = () => {
   return (
     <footer className="text-white relative z-10 w-full">
       {/* Background image full width */}
-      <img src="footer1.webp" alt="" className="w-full" />
+      <Image src="/footer1.webp" alt="" width={1536} height={704} className="w-full h-auto" />
 
       <div>
         {/* Decorative gradient overlay */}
@@ -42,9 +42,9 @@ const Footer = () => {
                 </div>
               </div>
               <div className='flex w-full justify-center items-center mt-10'>
-                <img src="new-logo_web.webp" className='bg-white rounded-full w-28 md:w-36 p-1' alt="" />
-                <img src="new-logo_web1.webp" className=' rounded-full w-28 md:w-36 p-2' alt="" />
-                <img src="new-logo_web3.webp" className=' rounded-full w-28 md:w-36 p-2' alt="" />
+                <Image src="/new-logo_web.webp" width={780} height={780} className='bg-white rounded-full w-28 md:w-36 h-auto p-1' alt="" />
+                <Image src="/new-logo_web1.webp" width={780} height={780} className=' rounded-full w-28 md:w-36 h-auto p-2' alt="" />
+                <Image src="/new-logo_web3.webp" width={780} height={780} className=' rounded-full w-28 md:w-36 h-auto p-2' alt="" />
               </div>
             </div>
 

@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+"use client";
+
+import { useState } from 'react';
+import Image from 'next/image';
 import Section from './Section';
 import H2 from '../UI/H2';
 
@@ -9,34 +12,34 @@ const Game = () => {
 
   // Mapping of letters to hieroglyph image URLs
   const alphabet = {
-    "a": "heiroglyphics/a.webp",
-    "b": "heiroglyphics/b.webp",
-    "c": "heiroglyphics/c.webp",
-    "d": "heiroglyphics/d.webp",
-    "e": "heiroglyphics/e.webp",
-    "f": "heiroglyphics/f.webp",
-    "g": "heiroglyphics/g.webp",
-    "h": "heiroglyphics/h.webp",
-    "i": "heiroglyphics/i.webp",
-    "j": "heiroglyphics/j.webp",
-    "k": "heiroglyphics/k.webp",
-    "l": "heiroglyphics/l.webp",
-    "m": "heiroglyphics/m.webp",
-    "n": "heiroglyphics/n.webp",
-    "o": "heiroglyphics/o.webp",
-    "p": "heiroglyphics/p.webp",
-    "q": "heiroglyphics/q.webp",
-    "r": "heiroglyphics/r.webp",
-    "s": "heiroglyphics/s.webp",
-    "t": "heiroglyphics/t.webp",
-    "u": "heiroglyphics/u.webp",
-    "v": "heiroglyphics/v.webp",
-    "w": "heiroglyphics/w.webp",
-    "x": "heiroglyphics/x.webp",
-    "y": "heiroglyphics/y.webp",
-    "z": "heiroglyphics/z.webp",
-    "ch": "heiroglyphics/ch.webp",
-    "sh": "heiroglyphics/sh.webp",
+    "a": "/heiroglyphics/a.webp",
+    "b": "/heiroglyphics/b.webp",
+    "c": "/heiroglyphics/c.webp",
+    "d": "/heiroglyphics/d.webp",
+    "e": "/heiroglyphics/e.webp",
+    "f": "/heiroglyphics/f.webp",
+    "g": "/heiroglyphics/g.webp",
+    "h": "/heiroglyphics/h.webp",
+    "i": "/heiroglyphics/i.webp",
+    "j": "/heiroglyphics/j.webp",
+    "k": "/heiroglyphics/k.webp",
+    "l": "/heiroglyphics/l.webp",
+    "m": "/heiroglyphics/m.webp",
+    "n": "/heiroglyphics/n.webp",
+    "o": "/heiroglyphics/o.webp",
+    "p": "/heiroglyphics/p.webp",
+    "q": "/heiroglyphics/q.webp",
+    "r": "/heiroglyphics/r.webp",
+    "s": "/heiroglyphics/s.webp",
+    "t": "/heiroglyphics/t.webp",
+    "u": "/heiroglyphics/u.webp",
+    "v": "/heiroglyphics/v.webp",
+    "w": "/heiroglyphics/w.webp",
+    "x": "/heiroglyphics/x.webp",
+    "y": "/heiroglyphics/y.webp",
+    "z": "/heiroglyphics/z.webp",
+    "ch": "/heiroglyphics/ch.webp",
+    "sh": "/heiroglyphics/sh.webp",
   };
 
   // Handle input changes
@@ -94,12 +97,12 @@ const Game = () => {
           />
           <div id="hieroglyphs-display" className="flex flex-row flex-wrap justify-center gap-4 mt-4">
             {hieroglyphs.map((image, index) => (
-              <img key={index} src={image} alt={`Hieroglyph ${index}`} className='w-16 lg:w-32' />
+              <Image key={index} src={image} alt={`Hieroglyph ${index}`} width={200} height={200} className='w-16 lg:w-32 h-auto' />
             ))}
             {/* <img src="logo_horizontal.webp" className='w-2/3' alt="" /> */}
 
           </div>
-          <div className='flex w-full justify-center items-center mt-10'><img src="logo_horizontal.webp" className='w-72 translate-y-2' alt="" /></div>
+          <div className='flex w-full justify-center items-center mt-10'><Image src="/logo_horizontal.webp" width={1920} height={423} className='w-72 h-auto translate-y-2' alt="" /></div>
           {/* <p id="name-display" className='text-4xl mt-10 text-[#ffc000] font-bold'>{inputValue}</p> */}
         </div>
       </Section>

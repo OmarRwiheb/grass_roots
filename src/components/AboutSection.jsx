@@ -1,4 +1,4 @@
-import { GoArrowRight } from "react-icons/go";
+import Image from "next/image";
 import Section from "./Section";
 import H2 from "../UI/H2";
 
@@ -8,7 +8,7 @@ const AboutSection = () => {
 
   return (
     <>
-      <img src="pharaoh.webp" className='absolute right-0 filter: grayscale-100 opacity-25  h-full w-full object-cover lg:w-auto lg:h-auto ' alt="" />
+      <Image src="/pharaoh.webp" alt="" width={1024} height={1024} className='absolute right-0 filter: grayscale-100 opacity-25 h-full w-full object-cover lg:w-auto lg:h-auto' />
 
       <Section classes='h-fit mb-44 max-w-[90%] overflow-hidden lg:w-3/4'>
 

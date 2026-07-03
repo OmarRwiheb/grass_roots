@@ -1,14 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
 import { NavItems } from "../data/Nav";
 
 const MobMenue = ({ toggleMenu }) => {
   return (
     <div className="fixed flex justify-between items-center z-50 text-white w-[90%] lg:w-3/4 m-auto lg:hidden">
-      <Link to='/'><img src="logo.webp" alt="" className='w-[100px]' />
+      <Link href='/'><Image src="/logo.webp" alt="" width={1080} height={1080} className='w-[100px] h-auto' />
       </Link>
       <button className='lg:hidden' onClick={toggleMenu}>
         <HiMenuAlt3 size={35} />
@@ -17,7 +15,7 @@ const MobMenue = ({ toggleMenu }) => {
       <div className="menu-overlay flex flex-col items-center">
         <div className="menu-overlay-bar flex justify-between items-center text-white w-[90%] lg:w-3/4">
           <div className="menu-logo">
-            <Link to='/'><img src="logo.webp" alt="" className='w-[100px]' onClick={toggleMenu} />
+            <Link href='/'><Image src="/logo.webp" alt="" width={1080} height={1080} className='w-[100px] h-auto' onClick={toggleMenu} />
             </Link>
           </div>
           <button className="menu-close text-2xl" onClick={toggleMenu}>
@@ -32,7 +30,7 @@ const MobMenue = ({ toggleMenu }) => {
             {NavItems.map((link, index) => (
               <div className="menu-link-item text-6xl " key={index}>
                 <div className="menu-link-item-holder font-[Phenomena] ">
-                  <Link to={link.url} className='menu-link !text-white' onClick={toggleMenu}>
+                  <Link href={link.url} className='menu-link !text-white' onClick={toggleMenu}>
                     {link.title}
                   </Link>
                 </div>
@@ -41,9 +39,9 @@ const MobMenue = ({ toggleMenu }) => {
           </div>
           <div className='flex flex-col items-center gap-10 '>
             <div className='flex w-full justify-center items-center mt-10'>
-              <img src="new-logo_web.webp" className='bg-white rounded-full w-28 md:w-36 p-1' alt="" />
-              <img src="new-logo_web1.webp" className=' rounded-full w-28 md:w-36 p-2' alt="" />
-              <img src="new-logo_web3.webp" className=' rounded-full w-28 md:w-36 p-2' alt="" />
+              <Image src="/new-logo_web.webp" alt="" width={780} height={780} className='bg-white rounded-full w-28 md:w-36 h-auto p-1' />
+              <Image src="/new-logo_web1.webp" alt="" width={780} height={780} className=' rounded-full w-28 md:w-36 h-auto p-2' />
+              <Image src="/new-logo_web3.webp" alt="" width={780} height={780} className=' rounded-full w-28 md:w-36 h-auto p-2' />
             </div>
             <div className="flex flex-col items-center gap-2">
               <a href="mailto:grass.roots.cairo@gmail.com">

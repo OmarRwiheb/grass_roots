@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+"use client";
+
+import { useEffect, useRef, useState } from 'react';
 
 const VideoModal = ({ isOpen, onClose, videoSrc }) => {
   const videoRef = useRef(null);
@@ -53,7 +55,7 @@ const VideoModal = ({ isOpen, onClose, videoSrc }) => {
             />
           </svg>
         </button>
-      
+
       {/* Video container - separate from background */}
       <div
         className="relative w-fit h-full max-w-6xl max-h-[90vh] p-4 flex items-center justify-center z-10"
@@ -75,4 +77,3 @@ const VideoModal = ({ isOpen, onClose, videoSrc }) => {
 };
 
 export default VideoModal;
-

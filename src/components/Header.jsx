@@ -1,6 +1,8 @@
+"use client";
 
 import { NavItems } from "../data/Nav";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from 'react'
 
 import { gsap } from 'gsap';
@@ -42,12 +44,12 @@ const Header = () => {
       <nav className='flex justify-center' ref={container}>
         <div className="menu-bar fixed z-50  justify-between items-center text-white w-[90%] lg:w-3/4 m-auto  hidden lg:flex">
           <div className="menu-logo">
-            <Link to='/'><img src="logo.webp" alt="" className='w-[100px]' />
+            <Link href='/'><Image src="/logo.webp" alt="" width={1080} height={1080} className='w-[100px] h-auto' />
             </Link>
           </div>
           <ul className='space-x-4 gap-9 text-xl hidden lg:flex'>
             {NavItems.map((item, index) => (
-              <li key={item.title} className="uppercase font-light" ><Link to={item.url}>{item.title}</Link></li>
+              <li key={item.title} className="uppercase font-light" ><Link href={item.url}>{item.title}</Link></li>
             ))}
           </ul>
         </div>
