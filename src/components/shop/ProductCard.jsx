@@ -74,7 +74,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className="pt-3">
-        <h3 className="uppercase font-bold text-sm lg:text-base text-white">{name}</h3>
+        <h3 className="uppercase font-bold text-sm lg:text-base text-white truncate">{name}</h3>
         <div className="flex items-center gap-2 mt-1">
           {originalPrice && (
             <span className="text-xs lg:text-sm text-white/50 line-through">{originalPrice}</span>

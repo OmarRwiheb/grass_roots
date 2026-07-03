@@ -82,7 +82,7 @@ const ProductDetailClient = ({ product, relatedProducts = [] }) => {
 
   return (
     <>
-      <Section classes="mt-32 mb-24">
+      <Section classes="mt-32 mb-24 max-w-[90%] lg:w-3/4">
         <div className="w-full">
           <nav className="text-xs uppercase tracking-[0.2em] text-white/50 mb-8">
             <Link href="/products" className="hover:text-[#ffc000] transition-colors">
