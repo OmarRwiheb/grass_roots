@@ -1,12 +1,56 @@
-# React + Vite
+# Grass Roots
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing/e-commerce site for Grass Roots, an Egyptian-themed retail brand. Built with Next.js (App Router) and React 19, with product/cart data backed by the Shopify Storefront API.
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install dependencies and copy the environment template:
 
-## Expanding the ESLint configuration
+```bash
+npm install
+cp .env.example .env
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Fill in `.env` with your Shopify store's Storefront API credentials, then start the dev server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN` | Your Shopify store domain (e.g. `your-store.myshopify.com`) |
+| `SHOPIFY_STOREFRONT_PRIVATE_TOKEN` | Server-only Storefront API access token (higher rate limit) |
+| `NEXT_PUBLIC_SHOPIFY_API_VERSION` | Shopify Storefront API version (e.g. `2025-01`) |
+
+## Commands
+
+- `npm run dev` — start the Next.js dev server
+- `npm run build` — production build
+- `npm run start` — serve the production build (run `build` first)
+- `npm run lint` — run ESLint (`next lint`) over the project
+
+There is no test suite configured in this project.
+
+## Project structure
+
+- `src/app/` — App Router routes: `/` (home), `/stores`, `/products`, `/products/[handle]`, `/collections/[handle]`, and `/api/shopify` route handlers.
+- `src/components/` — feature and UI components, including the Shopify shop UI under `src/components/shop/`.
+- `src/services/shopify/` — Shopify Storefront API client and data-fetching helpers (products, collections, cart).
+- `src/contexts/CartContext.jsx` — client-side cart state, paired with `src/components/shop/CartDrawer.jsx`.
+- `src/config/shopify.js` — Shopify client configuration.
+- `src/data/` — static data (e.g. nav links).
+- `public/` — static assets (product photography, store logos, hero images, hieroglyph game assets).
+
+See `CLAUDE.md` for a more detailed architecture overview (animation stack, client/server component conventions, image patterns, etc.).
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) 15 (App Router) + React 19
+- [Tailwind CSS](https://tailwindcss.com) v4
+- Shopify Storefront API for products, collections, and cart/checkout
+- Animation: Lenis (smooth scroll), AOS (scroll reveal), Framer Motion (parallax), GSAP (mobile menu)
